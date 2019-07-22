@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter , Route ,Link } from 'react-router-dom';
+import  Public from './public';
+import Protected from './protected';
+import Movies from './movies';
+import Login from './login';
+import ProtectedRoute from './ProtectedRoute';
+import AuthButton from './AuthButton';
 
-function App() {
+class App extends React.Component {
+  render(){
+
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <BrowserRouter>
+      <div>
+      <AuthButton/>
+      <ul>
+          <li><Link to="/public">Public Page</Link></li>
+          <li><Link to="/protected">Protected Page</Link></li>
+          <li><Link to="/movies">Movies Page</Link></li>
+        </ul>
+        <Route path="/public" component={Public}/>
+        <Route path="/login" component={Login}/>
+        <ProtectedRoute path='/protected' component={Protected} />
+        <ProtectedRoute path='/movies' component={Movies} />
+  </div>
+</BrowserRouter>
     </div>
   );
+}
 }
 
 export default App;

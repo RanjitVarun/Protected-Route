@@ -4,7 +4,10 @@
   "private": true,
   "dependencies": {
     "react": "^16.8.6",
+    "react-check-auth": "^0.2.0-alpha.2",
     "react-dom": "^16.8.6",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1"
   },
   "scripts": {
